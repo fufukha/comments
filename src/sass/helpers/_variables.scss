@@ -1,0 +1,29 @@
+//===============
+//    Colors  
+//===============
+$primary-color: rgb(17, 17, 22);
+$secondary-color: rgb(42, 42, 54);
+$tertiary-color: rgb(33, 33, 43);
+$shadow: darken($primary-color, 5%);
+$primary-color_text: rgb(233, 233, 238);
+$secondary-color_text: rgb(152, 152, 176);
+$green: rgb(108, 228, 133);
+$pink: rgb(251, 21, 90);
+$darkPink: rgb(151, 21, 90);
+
+//===============
+//    Fonts
+//===============
+$font-family: 'Open Sans', sans-serif;
+
+//===============
+//    Avatar
+//===============
+$avatar-size: 80px;
+$avatar-size_sm : calc(#{$avatar-size} / 2);
+
+//===============
+//    Borders
+//===============
+$border-radius: 2px;
+$break-width: 0.5px;

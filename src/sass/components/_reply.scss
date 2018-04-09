@@ -1,0 +1,17 @@
+.reply {
+	position: relative;
+	border-top: $break-width solid black;
+  background: $tertiary-color;	
+  @extend %box;
+	.avatar {
+		width: $avatar-size_sm;
+		height: $avatar-size_sm;
+		border-radius: $avatar-size_sm;
+		left: calc( (#{$avatar-size_sm} + 30px) * -1 );
+		border: 2px solid $green;
+		object-fit: cover;
+		position: absolute;
+		top: 0;		
+	}
+}
+

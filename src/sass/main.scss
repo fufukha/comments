@@ -1,0 +1,32 @@
+
+
+body {  
+  background: $primary-color;
+  display: none; //for fontawesome
+  @extend %primary-type;
+}
+
+@include scrollbars(.5em, $tertiary-color);
+
+//===============
+//  Fontawesome
+//===============
+.fontawesome-i2svg-active body {
+  display: initial;
+}
+
+.svg-inline--fa {
+  padding-top: 3px;
+}
+
+//===============
+//     Links
+//===============
+a {
+  cursor: pointer;
+  position: relative;
+  @include transition(color 0.3s ease);
+  &:hover {
+    color: lighten($secondary-color_text, 20%);
+  }
+}
