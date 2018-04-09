@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import App from './components/app/app';
+import './sass/main.scss';
 
 function component() {
 	let element = document.createElement('div');

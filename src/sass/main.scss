@@ -1,8 +1,14 @@
-
+@import "helpers/variables";
+@import "helpers/mixins";
+@import "helpers/placeholders";
+@import "components/app";
+@import "components/modals";
+@import "components/replyform";
+@import "components/reply";
 
 body {  
   background: $primary-color;
-  display: none; //for fontawesome
+  // display: none; //for fontawesome
   @extend %primary-type;
 }
 
