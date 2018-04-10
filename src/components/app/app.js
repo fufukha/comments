@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReplyBox from '../reply_box/reply_box';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 export default class App extends Component {
 	constructor() {
@@ -7,6 +8,7 @@ export default class App extends Component {
 		
 		this.state = { like: false }
 	}
+
 	render() {
 		const dummyText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 		Praesent interdum fermentum sapien. In rutrum accumsan lorem at sagittis. 
@@ -32,7 +34,7 @@ export default class App extends Component {
 									role="button" 
 									title={this.state.like ? 'Unlike' : 'Like'}  
 									onClick={this._handleClick.bind(this)}>
-									<i className="fas fa-heart"></i>
+									<FontAwesomeIcon icon="heart"/>
 								</a>
 							</div>
 						</footer>            

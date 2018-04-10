@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Modal from '../modal/modal';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 export default class Reply extends Component {
 	componentDidUpdate() {
@@ -28,7 +29,7 @@ export default class Reply extends Component {
 						<time>{currentDate} &nbsp; {currentTime} </time>
 					</div>
 						<a onClick={this._handleClick.bind(this)} role="button">
-							<i className="fas fa-trash" title="Delete reply"></i>
+							<FontAwesomeIcon icon="trash"/>
 					</a>
 					{this.props.isModalDisplayed && (
 						<Modal 
