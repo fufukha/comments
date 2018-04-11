@@ -1,8 +1,11 @@
 .reply {
 	position: relative;
-	border-top: $break-width solid black;
+	border-top: 0.5px solid black;
   background: $tertiary-color;	
   @extend %box;
+  pre {
+  	font-family: $font-family;
+  }
 	.avatar {
 		width: $avatar-size_sm;
 		height: $avatar-size_sm;
