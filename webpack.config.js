@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
 	entry: {
@@ -20,21 +21,32 @@ module.exports = {
 						]
 					}
 				}          
-			},
-			{
+			}, {
 				test: /\.scss$/,
-				use: [
-					'style-loader',
-					'css-loader',
-					'sass-loader'
-				 ]
+				use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
+        })
 			}
 		]
 	},
 	plugins: [
 		new CleanWebpackPlugin(['dist']),
 		new HtmlWebpackPlugin({
-			title: 'Comments'
+			inject: false,
+			template: require('html-webpack-template'),
+			lang: 'en-US',
+			title: 'Comments',
+			link: [{
+				href: '/style.css',
+				rel: 'stylesheet',
+				type: 'text/css'
+			}]
+		}),
+		new ExtractTextPlugin({
+			filename: 'style.css',
+			disable: process.env.NODE_ENV === "development",
+			allChunks : true
 		})
 	],
 	output: {
