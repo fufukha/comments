@@ -5,10 +5,11 @@ import fontawesome from '@fortawesome/fontawesome';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faHeart from '@fortawesome/fontawesome-free-solid/faHeart';
 import faTrash from '@fortawesome/fontawesome-free-solid/faTrash';
+import './sass/main.scss';
 
 fontawesome.library.add(faHeart, faTrash);
 
-import './sass/main.scss';
+
 
 function component() {
 	let element = document.createElement('div');
