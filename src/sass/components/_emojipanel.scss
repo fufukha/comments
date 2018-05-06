@@ -1,0 +1,27 @@
+$panel-width: 92px;
+$panel-height: 37px;
+
+.emoji-panel {
+  position: absolute;
+  right: calc(22px - #{$panel-width});
+  bottom: calc(5px -  #{$panel-height});
+  background: lighten($secondary-color, 3%);
+  float: left;
+  padding: 10px 10px;
+  .wrapper-emoji {
+    display: flex;
+    svg:not(:last-child) {
+      margin-right: 5px;
+    }
+  }
+  .fa-smile {
+    @include transition(all 0.3s ease-in);
+    :hover {
+      transform: scale(1.1, 1.1);
+      cursor: pointer;
+    }
+    path {
+      fill: $yellow;
+    }
+  }
+}

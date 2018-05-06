@@ -1,6 +1,7 @@
 .reply-form {
 	@extend %box;
 	form {
+		position: relative;
 		border: 1px solid $darkPink;
 		border-radius: $border-radius;
 		@extend %center_horiz;
@@ -33,5 +34,18 @@
 		display: flex;
 		justify-content: space-between;    
 		@extend %subtext;
+	}
+	.emoji-btn {
+		position: absolute; 
+		bottom: 5px;
+		right: 5px;
+		cursor: pointer;
+		.fa-smile path {
+			fill: $secondary-color_text;
+			@include transition(fill 0.3s ease-in);
+			&:hover {
+				fill: lighten($secondary-color_text, 20%);
+			}
+		}
 	}
 }

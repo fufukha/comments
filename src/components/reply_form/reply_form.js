@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import EmojiPanel from '../emoji_panel/emoji_panel';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 export default class ReplyForm extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { replyText: '' };
+		this.state = { 
+			replyText: '',
+			isEmojiPanel: false
+		 };
 	}
 	
 	render() {
@@ -19,6 +24,15 @@ export default class ReplyForm extends Component {
 						onChange={this._handleChange.bind(this)}
 						onKeyPress={this._handleKeyPress.bind(this)}>
 					</textarea>
+					<div 
+						class="emoji-btn" 
+						title='Add emoji' 
+						onClick={this._handleClick.bind(this)}>
+							<FontAwesomeIcon icon={["far", "smile"]}/>
+					</div>
+					{this.state.isEmojiPanel && (
+							<EmojiPanel />
+							)}
 				</form>
 			</div>
 		);
@@ -49,4 +63,10 @@ export default class ReplyForm extends Component {
 		
 		this.setState({ replyText: '' });
 	}
+
+  _handleClick() {
+  	event.preventDefault();
+    this.setState( { isEmojiPanel: !this.state.isEmojiPanel} );
+  }
 }
+
