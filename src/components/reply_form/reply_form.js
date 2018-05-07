@@ -68,7 +68,10 @@ export default class ReplyForm extends Component {
 		let currentTimeDate = new Date();
 		this.props.addReply(replyText, currentTimeDate);
 		
-		this.setState({ replyText: '' });
+		this.setState({ 
+			replyText: '',
+			isEmojiPanel: false
+		});
 	}
 
   _handleClick() {
