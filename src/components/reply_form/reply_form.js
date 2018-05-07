@@ -31,7 +31,8 @@ export default class ReplyForm extends Component {
 							<FontAwesomeIcon icon={["far", "smile"]}/>
 					</div>
 					{this.state.isEmojiPanel && (
-							<EmojiPanel />
+							<EmojiPanel
+								appendEmoji={this._appendEmoji.bind(this)} />
 							)}
 				</form>
 			</div>
@@ -52,6 +53,12 @@ export default class ReplyForm extends Component {
 	_handleChange(event) {
 		console.log(event.target.value.length);
 		this.setState({ replyText: event.target.value });
+	}
+
+	_appendEmoji (emoji) {
+		const appendedText = `${this.state.replyText} ${emoji}`;
+
+		this.setState({ replyText: appendedText});
 	}
 	
 	_handleSubmit(event) {
