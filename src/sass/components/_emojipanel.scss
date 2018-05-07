@@ -8,6 +8,7 @@ $panel-height: 37px;
   background: lighten($secondary-color, 3%);
   float: left;
   padding: 10px 10px;
+  z-index: 999999999;
   .wrapper-emoji {
     display: flex;
     svg:not(:last-child) {
