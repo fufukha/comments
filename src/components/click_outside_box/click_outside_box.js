@@ -4,7 +4,7 @@ export default class ClickOutsideBox extends React.Component {
   componentDidMount() {
     document.addEventListener("click", () => {
 			//if outside return empty string-falsey
-			const isInside = (event.target).closest(this.props.selector);
+			const isInside = (event.target).closest(this.props.children.classList);
 			if ( !isInside ) {
 				this.props.hideElement();
 			}
