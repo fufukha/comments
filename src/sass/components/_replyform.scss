@@ -6,9 +6,6 @@
 		border-radius: $border-radius;
 		@extend %center_horiz;
 		@include transition(border-width 0.3s ease-in);
-		&:focus-within{
-			border-width: 1.5px;
-		}
 		textarea { 
 			border: 0;
 			background: $secondary-color;
