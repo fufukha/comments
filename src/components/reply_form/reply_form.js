@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EmojiPanel from '../emoji_panel/emoji_panel';
+import ToggleBox from  '../toggle_box/toggle_box';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 export default class ReplyForm extends Component {
@@ -7,7 +8,6 @@ export default class ReplyForm extends Component {
 		super(props);
 		this.state = { 
 			replyText: '',
-			isEmojiPanelDisplayed: false
 		 };
 	}
 	
@@ -24,16 +24,13 @@ export default class ReplyForm extends Component {
 						onChange={this._handleChange.bind(this)}
 						onKeyPress={this._handleKeyPress.bind(this)}>
 					</textarea>
-					<div 
-						class="emoji-btn" 
-						title='Add emoji' 
-						onClick={this._handleClick.bind(this)}>
-							<FontAwesomeIcon icon={["far", "smile"]}/>
-					</div>
-					{this.state.isEmojiPanelDisplayed && (
-							<EmojiPanel 
+					<ToggleBox
+						className="emoji-btn"
+						title="Add emoji"
+						toggleBtn={["far", "smile"]}>
+							<EmojiPanel
 								appendEmoji={this._appendEmoji.bind(this)} />
-							)}
+					</ToggleBox>
 				</form>
 			</div>
 		);
@@ -69,16 +66,5 @@ export default class ReplyForm extends Component {
 		this.props.addReply(replyText, currentTimeDate);
 		
 		this.setState({replyText: ''});
-		_closeEmojiPanel();
-	}
-
-  _handleClick() {
-  	event.preventDefault();
-    this.setState( { isEmojiPanelDisplayed: !this.state.isEmojiPanelDisplayed} );
-  }
-
-  _closeEmojiPanel() {
-  	this.setState( {isEmojiPanelDisplayed: false});
-  }
+	} 
 }
-
