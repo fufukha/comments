@@ -6,7 +6,8 @@ export default class App extends Component {
 	constructor() {
 		super();
 		
-		this.state = { like: false }
+		this.state = { isLike: false }
+		this._handleClick = this._handleClick.bind(this);
 	}
 
 	render() {
@@ -17,6 +18,10 @@ export default class App extends Component {
 		adipiscing elit. Praesent interdum fermentum sapien. In rutrum accumsan lorem 
 		at sagittis. Curabitur vitae urna quis velit congue mollis. Phasellus ut justo 
 		ut justo laoreet interdum sit amet vitae leo.`
+		const username = `Anon10923`;
+		const date = `Mar 1, 2018`;
+		const time = `05:50PM`
+		const { isLike } = this.state;
 				
 		return (
 			<main>
@@ -26,14 +31,14 @@ export default class App extends Component {
 						<p>{dummyText}</p>
 						<footer>
 							<div>
-								<span>Anon10923 &nbsp;|&nbsp;</span>
-								<time>Mar 1, 2018 &nbsp; 05:50PM</time>
+								<span>{username}&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+								<time>{date}&nbsp;&nbsp;{time}</time>
 							</div>              
-							<div className={this.state.like ? 'like' : ''}>
+							<div className={isLike ? 'like' : ''}>
 								<a
 									role="button" 
-									title={this.state.like ? 'Unlike' : 'Like'}  
-									onClick={this._handleClick.bind(this)}>
+									title={isLike ? 'Unlike' : 'Like'}  
+									onClick={this._handleClick}>
 									<FontAwesomeIcon icon="heart"/>
 								</a>
 							</div>
@@ -43,11 +48,12 @@ export default class App extends Component {
 					<ReplyBox />
 				</section>        
 			</main>
-		);      
+		);       
 	}
 	
 	_handleClick(event) {
 		event.preventDefault();
-		this.setState( { like: !this.state.like} );
+		const { isLike } = this.state;
+		this.setState( { islike: !islike} );
 	}
 }
