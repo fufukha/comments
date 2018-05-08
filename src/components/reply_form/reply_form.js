@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
 import EmojiPanel from '../emoji_panel/emoji_panel';
 import ToggleBox from  '../toggle_box/toggle_box';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 export default class ReplyForm extends Component {
 	constructor(props) {
 		super(props);
+
 		this.state = { 
 			replyText: '',
 		 };
+
+		 this._handleChange = this._handleChange.bind(this);
+		 this._handleKeyPress = this._handleKeyPress.bind(this);
+		 this._appendEmoji = this._appendEmoji.bind(this);
 	}
 	
 	render() {
+		const { replyText } = this.state;
+
 		return(
 			<div className="reply-form">
 				<form>
@@ -20,16 +26,16 @@ export default class ReplyForm extends Component {
 						minLength="1"
 						type='text' 
 						placeholder='Write a reply...' 
-						value={this.state.replyText}
-						onChange={this._handleChange.bind(this)}
-						onKeyPress={this._handleKeyPress.bind(this)}>
+						value={replyText}
+						onChange={this._handleChange}
+						onKeyPress={this._handleKeyPress}>
 					</textarea>
 					<ToggleBox
 						className="emoji-btn"
 						title="Add emoji"
 						toggleBtn={["far", "smile"]}>
 							<EmojiPanel
-								appendEmoji={this._appendEmoji.bind(this)} />
+								appendEmoji={this._appendEmoji} />
 					</ToggleBox>
 				</form>
 			</div>
@@ -38,9 +44,10 @@ export default class ReplyForm extends Component {
 	
 	_handleKeyPress(event) {
 		const regex = RegExp('.');
-		let replyText = this.state.replyText;
+		const { replyText } = this.state;
 		const hasContent = regex.test(replyText);
-		if(hasContent && event.key == 'Enter' && !event.shiftKey) { 
+
+		if( hasContent && event.key == 'Enter' && !event.shiftKey) { 
 			event.preventDefault();
 			this._handleSubmit(event);
 			event.target.blur();
@@ -48,8 +55,9 @@ export default class ReplyForm extends Component {
 	}
 	
 	_handleChange(event) {
-		console.log(event.target.value.length);
-		this.setState({ replyText: event.target.value });
+		const replyText = event.target.value; 
+		
+		this.setState({ replyText: replyText });
 	}
 
 	_appendEmoji (emoji) {
@@ -61,8 +69,9 @@ export default class ReplyForm extends Component {
 	_handleSubmit(event) {
 		event.preventDefault();
 		
-		let replyText = this.state.replyText; 
-		let currentTimeDate = new Date();
+		const { replyText } = this.state; 
+		const currentTimeDate = new Date();
+
 		this.props.addReply(replyText, currentTimeDate);
 		
 		this.setState({replyText: ''});

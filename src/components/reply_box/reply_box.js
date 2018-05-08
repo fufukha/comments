@@ -9,26 +9,29 @@ export default class ReplyBox extends Component {
 			replies: [], 
 			selectedReplyKIndex: null
 		}
+
+		this._addReply = this._addReply.bind(this);
 	}
 	
 	render() {
 		const replies = this._getReplies();
 		return (
 			<div>
-				<ReplyForm addReply={this._addReply.bind(this)} />
+				<ReplyForm addReply={this._addReply} />
 				<div className='reply-list'>{replies}</div>
 			</div>
 		);
 	}
 	
 	_getReplies() {
-		return this.state.replies.map( (reply, index) => {
+		const { selectedReplyIndex, replies } = this.state;
+		return replies.map( (reply, index) => {
 				return (
 					<Reply 
 							replyText={reply.replyText}
 							currentTimeDate={reply.currentTimeDate}
 							key={reply.uniqueKey}
-							isModalDisplayed ={this.state.selectedReplyIndex === index}
+							isModalDisplayed ={selectedReplyIndex === index}
 							displayModal={this._displayModal.bind(this, index)}
 							hideModal={this._hideModal.bind(this)}
 							deleteReply={this._deleteReply.bind(this, index)}/>            

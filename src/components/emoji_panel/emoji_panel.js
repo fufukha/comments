@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 export default class EmojiPanel extends Component {
+	constructor() {
+		super();
+		this._handleClick = this._handleClick.bind(this);
+	}
+	
 	render () {
 		const emojis = ["🙂", "😃", "😀", "🙄",
 		 "😉", "🤣", "😎", "😛",
@@ -9,7 +14,7 @@ export default class EmojiPanel extends Component {
 		 "😇", "🤓", "😷", "😍"];
 
 		const emojiSpans = emojis.map( emoji => 
-			<span onClick={this._handleClick.bind(this)}>{emoji}</span>
+			<span onClick={this._handleClick}>{emoji}</span>
 		);
 
 		return (
