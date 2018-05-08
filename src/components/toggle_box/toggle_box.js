@@ -13,7 +13,7 @@ export default class ToggleBox extends Component {
 	}
 
 	componentDidMount() {
-    document.addEventListener("click", () => {
+		document.addEventListener("click", () => {
 			//if outside return empty string-falsey
 			const isInside = (event.target).closest(".toggleBox");
 			if ( !isInside ) {
