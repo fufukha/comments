@@ -12,6 +12,16 @@ export default class ToggleBox extends Component {
 		 this._toggleDisplay = this._toggleDisplay.bind(this);
 	}
 
+	componentDidMount() {
+    document.addEventListener("click", () => {
+			//if outside return empty string-falsey
+			const isInside = (event.target).closest(".toggleBox");
+			if ( !isInside ) {
+				this._hideDisplay();
+			}
+		});
+  }
+
 	render() {
 		const { isDisplay } = this.state;
 		const { className, title, children, toggleBtn } = this.props;
@@ -36,18 +46,6 @@ export default class ToggleBox extends Component {
 	_toggleDisplay() {
 		const { isDisplay } = this.state;
 		this.setState({ isDisplay: !isDisplay });
-
-		this._clickOutside(".toggleBox");
-	}
-
-	_clickOutside(selector) {
-		document.addEventListener("click", () => {
-			//if outside return empty string-falsey
-			const isInside = (event.target).closest(selector);
-			if ( !isInside ) {
-				this._hideDisplay();
-			}
-		})
 	}
 
 	_hideDisplay() {
