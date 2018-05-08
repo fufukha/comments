@@ -7,7 +7,7 @@ export default class ReplyForm extends Component {
 		super(props);
 		this.state = { 
 			replyText: '',
-			isEmojiPanel: false
+			isEmojiPanelDisplayed: false
 		 };
 	}
 	
@@ -30,8 +30,8 @@ export default class ReplyForm extends Component {
 						onClick={this._handleClick.bind(this)}>
 							<FontAwesomeIcon icon={["far", "smile"]}/>
 					</div>
-					{this.state.isEmojiPanel && (
-							<EmojiPanel
+					{this.state.isEmojiPanelDisplayed && (
+							<EmojiPanel 
 								appendEmoji={this._appendEmoji.bind(this)} />
 							)}
 				</form>
@@ -68,15 +68,17 @@ export default class ReplyForm extends Component {
 		let currentTimeDate = new Date();
 		this.props.addReply(replyText, currentTimeDate);
 		
-		this.setState({ 
-			replyText: '',
-			isEmojiPanel: false
-		});
+		this.setState({replyText: ''});
+		_closeEmojiPanel();
 	}
 
   _handleClick() {
   	event.preventDefault();
-    this.setState( { isEmojiPanel: !this.state.isEmojiPanel} );
+    this.setState( { isEmojiPanelDisplayed: !this.state.isEmojiPanelDisplayed} );
+  }
+
+  _closeEmojiPanel() {
+  	this.setState( {isEmojiPanelDisplayed: false});
   }
 }
 
