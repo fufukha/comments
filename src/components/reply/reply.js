@@ -23,7 +23,7 @@ export default class Reply extends Component {
 		
 		return(
 			<article className='reply'
-							ref={node => this.node = node}>
+					ref={node => this.node = node}>
 				{/*<img className='avatar' src={imgScr} />*/}
 				<pre>
 					<p>{replyText}</p>
