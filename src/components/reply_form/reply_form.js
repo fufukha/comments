@@ -56,7 +56,7 @@ export default class ReplyForm extends Component {
 	}
 
 	_appendEmoji (emoji) {
-		const appendedText = `${this.state.replyText} ${emoji}`;
+		const appendedText = `${this.state.replyText}${emoji}`;
 
 		this.setState({ replyText: appendedText});
 	}
