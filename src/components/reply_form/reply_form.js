@@ -31,7 +31,7 @@ export default class ReplyForm extends Component {
 						onKeyPress={this._handleKeyPress}>
 					</textarea>
 					<ToggleBox
-						className="emoji-btn"
+						classNames="emoji-btn"
 						title="Add emoji"
 						toggleBtn={["far", "smile"]}>
 							<EmojiPanel
