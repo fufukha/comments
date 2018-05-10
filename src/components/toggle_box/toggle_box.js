@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Overlay from '../overlay/overlay';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 export default class ToggleBox extends Component {
@@ -26,24 +27,28 @@ export default class ToggleBox extends Component {
 
 	render() {
 		const { isDisplay } = this.state;
-		const { classNames, title, children, toggleBtn, _hideDisplay } = this.props;
+		const { classNames, title, children, toggleBtn, overlayType, _hideDisplay } = this.props;
     const childrenWithProps = React.Children.map(children, child =>
       React.cloneElement(child, { hideDisplay: this._hideDisplay}));
 
 
 		return (
-			<div className="toggleBox">
-				<div
-					className={classNames}
-					title={title}
-					role="button"
-					onClick={this._toggleDisplay}>
-						<FontAwesomeIcon icon={toggleBtn}/>
-				</div>
+			<div>
 				{isDisplay &&
-					<div>
-						{childrenWithProps}
-					</div>}
+					<Overlay className={overlayType} />}
+				<div className="toggleBox">
+					<div
+						className={classNames}
+						title={title}
+						role="button"
+						onClick={this._toggleDisplay}>
+							<FontAwesomeIcon icon={toggleBtn}/>
+					</div>
+					{isDisplay &&
+						<div>
+							{childrenWithProps}
+						</div>}
+				</div>
 			</div>
 		);
 	}
