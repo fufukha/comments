@@ -4,7 +4,7 @@ export default class Overlay extends Component {
 	render() {
 		const { children, className} = this.props;
 		return (
-			<div id="overlay" className={className}>{children}</div>
+			<div className={className}>{children}</div>
 		);
 	}
 }
