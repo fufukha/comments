@@ -36,7 +36,8 @@ export default class Reply extends Component {
 					</div>
 					<ToggleBox
 						toggleBtn="trash"
-						title="Delete">
+						title="Delete"
+						overlayType="overlay_fullscreen">
 							<Modal 
 								deleteReply={deleteReply}/>
 					</ToggleBox>
