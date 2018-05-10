@@ -41,7 +41,6 @@ export default class ReplyBox extends Component {
 
 	_addReply(replyText, currentTimeDate) {
 		const reply = {uniqueKey: this.state.replies.length + 1, replyText, currentTimeDate};
-		console.log(reply.uniqueKey);
 
 		this.setState({ replies: this.state.replies.concat([reply]) });
 	}
@@ -55,7 +54,6 @@ export default class ReplyBox extends Component {
 	}
 	
 	_deleteReply(indexToDelete){
-		console.log(indexToDelete);
 		this._hideModal();
 		const replies = this.state.replies.filter( (reply, index) => {
 			return index !== indexToDelete;
