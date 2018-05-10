@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Modal from '../modal/modal';
+import ToggleBox from '../toggle_box/toggle_box';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 export default class Reply extends Component {
@@ -18,7 +19,7 @@ export default class Reply extends Component {
 		const currentDate = d.toLocaleDateString('en-US', optDate);
 		const currentTime = d.toLocaleTimeString('en-US', optTime); 
 		const userName = 'Anon1111';
-		const { replyText, hideModal, deleteReply, isModalDisplayed } = this.props;
+		const { replyText, hideModal, deleteReply, isModalDisplayed} = this.props;
 		{/*const imgScr = 'https://www.dropbox.com/s/zy3vhwod43n7dl7/people-200-200.jpg?raw=1'*/}
 		
 		return(
@@ -33,14 +34,12 @@ export default class Reply extends Component {
 						<span>{userName} &nbsp;|&nbsp;</span>
 						<time>{currentDate} &nbsp; {currentTime} </time>
 					</div>
-						<a onClick={this._handleClick} role="button">
-							<FontAwesomeIcon icon="trash"/>
-					</a>
-					{isModalDisplayed && (
-						<Modal 
-							hideModal={hideModal}
-							deleteReply={deleteReply}/>
-					)}
+					<ToggleBox
+						toggleBtn="trash"
+						title="Delete">
+							<Modal 
+								deleteReply={deleteReply}/>
+					</ToggleBox>
 				</footer>  
 			</article>      
 		)
