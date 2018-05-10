@@ -28,13 +28,10 @@ export default class ReplyBox extends Component {
 		return replies.map( (reply, index) => {
 				return (
 					<Reply 
-							replyText={reply.replyText}
-							currentTimeDate={reply.currentTimeDate}
-							key={reply.uniqueKey}
-							isModalDisplayed ={selectedReplyIndex === index}
-							displayModal={this._displayModal.bind(this, index)}
-							hideModal={this._hideModal.bind(this)}
-							deleteReply={this._deleteReply.bind(this, index)}/>            
+						replyText={reply.replyText}
+						currentTimeDate={reply.currentTimeDate}
+						key={reply.uniqueKey}
+						deleteReply={this._deleteReply.bind(this, index)}/>            
 				);
 			});
 	}
@@ -43,10 +40,6 @@ export default class ReplyBox extends Component {
 		const reply = {uniqueKey: this.state.replies.length + 1, replyText, currentTimeDate};
 
 		this.setState({ replies: this.state.replies.concat([reply]) });
-	}
-	
-	_displayModal(index){
-		this.setState( { selectedReplyIndex: index } );
 	}
 	
 	_hideModal() {
