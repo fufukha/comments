@@ -13,6 +13,7 @@ export default class ReplyForm extends Component {
 		 this._handleChange = this._handleChange.bind(this);
 		 this._handleKeyPress = this._handleKeyPress.bind(this);
 		 this._appendEmoji = this._appendEmoji.bind(this);
+		 this._hasContent = this._hasContent.bind(this);
 	}
 	
 	render() {
@@ -43,9 +44,8 @@ export default class ReplyForm extends Component {
 	}
 	
 	_handleKeyPress(event) {
-		const regex = RegExp('.');
 		const { replyText } = this.state;
-		const hasContent = regex.test(replyText);
+		const hasContent = this._hasContent(replyText);
 
 		if( hasContent && event.key == 'Enter' && !event.shiftKey) { 
 			event.preventDefault();
@@ -53,9 +53,16 @@ export default class ReplyForm extends Component {
 			event.target.blur();
 		}
 	}
-	
+
+	_hasContent(str) {
+		const regex = RegExp('^\s*$');
+		const hasContent = !regex.test(str);
+
+		return(hasContent)
+	}
+
 	_handleChange(event) {
-		const replyText = event.target.value; 
+		const replyText = event.target.value.trim(); 
 		
 		this.setState({ replyText: replyText });
 	}
