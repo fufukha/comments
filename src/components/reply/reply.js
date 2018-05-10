@@ -19,7 +19,7 @@ export default class Reply extends Component {
 		const currentDate = d.toLocaleDateString('en-US', optDate);
 		const currentTime = d.toLocaleTimeString('en-US', optTime); 
 		const userName = 'Anon1111';
-		const { replyText, hideModal, deleteReply, isModalDisplayed} = this.props;
+		const { replyText, deleteReply } = this.props;
 		{/*const imgScr = 'https://www.dropbox.com/s/zy3vhwod43n7dl7/people-200-200.jpg?raw=1'*/}
 		
 		return(
