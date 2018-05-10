@@ -15,6 +15,7 @@ $neg_margin_left: calc( ((20px + 20px + #{$height})/2)*-1);
 	margin: $neg_margin_top 0 0 $neg_margin_left;
 	background: $secondary-color;
 	font-size: 16px;
+	z-index: 99999;
 	@extend %box;
 	.modal_text {
 		color: $primary-color_text;
