@@ -1,0 +1,13 @@
+//===============
+//   Overlay
+//===============
+.overlay_fullscreen {
+	background-color: rgba(0,0,0,0.4);
+	width: 100vw;
+	height: 100vh;
+	z-index: 1;
+	position: fixed;
+	overflow: auto;
+	top: 0;
+	left: 0;
+}
