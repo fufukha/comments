@@ -8,6 +8,7 @@ export default class ReplyForm extends Component {
 
 		this.state = { 
 			replyText: '',
+			textareaClass: '',
 		 };
 
 		 this._handleChange = this._handleChange.bind(this);
@@ -17,12 +18,13 @@ export default class ReplyForm extends Component {
 	}
 	
 	render() {
-		const { replyText } = this.state;
+		const { replyText, textareaClass } = this.state;
 
 		return(
 			<div className="reply-form">
 				<form>
 					<textarea 
+						className={textareaClass}
 						required
 						minLength="1"
 						type='text' 
@@ -46,9 +48,13 @@ export default class ReplyForm extends Component {
 	_handleKeyPress(event) {
 		const { replyText } = this.state;
 		const hasContent = this._hasContent(replyText);
-
+		
 		if( hasContent && event.key == 'Enter' && !event.shiftKey) { 
 			event.preventDefault();
+
+			const trimmedText = replyText.trim();
+			this.setState({ replyText: trimmedText });
+
 			this._handleSubmit(event);
 			event.target.blur();
 		}
@@ -58,13 +64,15 @@ export default class ReplyForm extends Component {
 		const regex = RegExp('^\s*$');
 		const hasContent = !regex.test(str);
 
-		return(hasContent)
+		return(hasContent);
 	}
 
 	_handleChange(event) {
-		const replyText = event.target.value.trim(); 
+		const replyText = event.target.value.replace(/^\s+/, '');
+		const hasContent = this._hasContent(replyText);
 		
 		this.setState({ replyText: replyText });
+		if (hasContent) { this.setState({ textareaClass: 'active_textarea'});}
 	}
 
 	_appendEmoji (emoji) {
@@ -81,6 +89,7 @@ export default class ReplyForm extends Component {
 
 		this.props.addReply(replyText, currentTimeDate);
 		
-		this.setState({replyText: ''});
+		this.setState({ replyText: '',
+			textareaClass: '', });
 	} 
 }
