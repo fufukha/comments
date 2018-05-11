@@ -22,8 +22,13 @@
 				outline: none;
 				height: 66px;
 				overflow: auto;
-				@include placeholder{color: transparent; transition: color 0.2s ease;};
+				@include placeholder{color: transparent; transition: color 0.2s ease};
 			}
+		}
+		.active_textarea {
+			height: 66px !important;
+			overflow: auto;
+			@include placeholder{color: transparent; transition: color 0.2s ease};
 		}     
 	}
 	footer {
