@@ -31,7 +31,6 @@ export default class ToggleBox extends Component {
     const childrenWithProps = React.Children.map(children, child =>
       React.cloneElement(child, { hideDisplay: this._hideDisplay}));
 
-
 		return (
 			<div>
 				{isDisplay &&
