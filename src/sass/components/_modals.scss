@@ -39,18 +39,18 @@ $neg_margin_left: calc( ((20px + 20px + #{$height})/2)*-1);
 			outline: 0;
 		}
 	}
-	button:first-child {
+	.cancel {
 		border: 1px solid $secondary-color_text;
 		background: $secondary-color;
 		margin-right: 30px;
-		&:hover {
+		&:hover, &:focus {
 			border-width: 1.5px;
 		}
 	}
-	button:nth-child(2) {
-		background: $pink;        
-		&:hover {
-			background: darken($pink, 10%);
+	.delete {
+		background: darken($pink, 15%);        
+		&:hover, &:focus {
+			background: $pink;
 		}
 	}
 }
