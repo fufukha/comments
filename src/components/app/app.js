@@ -54,6 +54,6 @@ export default class App extends Component {
 	_handleClick(event) {
 		event.preventDefault();
 		const { isLike } = this.state;
-		this.setState( { islike: !islike} );
+		this.setState( { isLike: !isLike} );
 	}
 }
