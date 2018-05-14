@@ -36,13 +36,13 @@ export default class ToggleBox extends Component {
 				{isDisplay &&
 					<Overlay className={overlayType} />}
 				<div className="toggleBox">
-					<div
+					<a
 						className={classNames}
 						title={title}
 						role="button"
 						onClick={this._toggleDisplay}>
 							<FontAwesomeIcon icon={toggleBtn}/>
-					</div>
+					</a>
 					{isDisplay &&
 						<div>
 							{childrenWithProps}
