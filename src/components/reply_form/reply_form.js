@@ -87,7 +87,7 @@ export default class ReplyForm extends Component {
 		const { replyText } = this.state; 
 		const currentTimeDate = new Date();
 
-		this.props.addReply(replyText, currentTimeDate);
+		this.props.addReply(replyText.trim(), currentTimeDate);
 		
 		this.setState({ replyText: '',
 			textareaClass: '', });
