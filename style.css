@@ -1,0 +1,278 @@
+.modal_content button, .reply-form form textarea, body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  color: #e9e9ee;
+  line-height: 1.6em; }
+
+main, .reply-form form {
+  display: flex;
+  justify-content: center; }
+
+main .post-box footer, .reply-form footer {
+  color: #9898b0;
+  font-size: 12px; }
+
+main .post-box .post, .modal_content, .reply-form, .reply {
+  padding: 20px 30px; }
+
+main {
+  padding-top: 50px; }
+  main .post-box {
+    width: 500px;
+    background: #2a2a36;
+    border-radius: 2px; }
+    main .post-box .post {
+      position: relative; }
+      main .post-box .post .avatar {
+        border: 2px solid #6ce485;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        width: 80px;
+        height: 80px;
+        border-radius: 80px;
+        left: calc( (80px + 30px) * -1); }
+    main .post-box hr {
+      margin: 0;
+      border: 0;
+      border-bottom: 1px solid black; }
+    main .post-box footer {
+      margin-top: 10px;
+      margin-right: 5px;
+      display: flex;
+      justify-content: space-between; }
+
+.like span {
+  font-size: 15px;
+  position: relative;
+  top: 2px;
+  right: 5px;
+  color: #fb155a; }
+
+.like .fa-heart path {
+  fill: #fb155a;
+  stroke-width: 0;
+  transform-origin: center;
+  transform: scale(1.2, 1.2);
+  -webkit-transition: fill 0.3s ease-in, stroke-width 0.3s ease-in, transform 0.3s ease-in;
+  -moz-transition: fill 0.3s ease-in, stroke-width 0.3s ease-in, transform 0.3s ease-in;
+  -ms-transition: fill 0.3s ease-in, stroke-width 0.3s ease-in, transform 0.3s ease-in;
+  -o-transition: fill 0.3s ease-in, stroke-width 0.3s ease-in, transform 0.3s ease-in;
+  transition: fill 0.3s ease-in, stroke-width 0.3s ease-in, transform 0.3s ease-in; }
+
+.fa-heart path {
+  stroke: #9898b0;
+  stroke-width: 50px;
+  fill: transparent;
+  -webkit-transition: stroke 0.3s ease-in;
+  -moz-transition: stroke 0.3s ease-in;
+  -ms-transition: stroke 0.3s ease-in;
+  -o-transition: stroke 0.3s ease-in;
+  transition: stroke 0.3s ease-in; }
+  .fa-heart path:hover {
+    stroke: #d2d2dc; }
+
+.modal_content {
+  width: 220px;
+  height: 146px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: calc( ((30px + 30px + 220px)/2)*-1) 0 0 calc( ((20px + 20px + 146px)/2)*-1);
+  background: #2a2a36;
+  font-size: 16px;
+  z-index: 99999; }
+  .modal_content .modal_text {
+    color: #e9e9ee; }
+  .modal_content .wrapper_btn {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; }
+  .modal_content button {
+    height: 46px;
+    border: 0;
+    border-radius: 30px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    cursor: pointer;
+    -webkit-transition: background 0.3s ease-in-out, border-size 0.5s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out, border-size 0.5s ease-in-out;
+    -ms-transition: background 0.3s ease-in-out, border-size 0.5s ease-in-out;
+    -o-transition: background 0.3s ease-in-out, border-size 0.5s ease-in-out;
+    transition: background 0.3s ease-in-out, border-size 0.5s ease-in-out; }
+    .modal_content button:focus {
+      outline: 0; }
+  .modal_content .cancel {
+    border: 1px solid #9898b0;
+    background: #2a2a36;
+    margin-right: 30px; }
+    .modal_content .cancel:hover, .modal_content .cancel:focus {
+      border-width: 1.5px; }
+  .modal_content .delete {
+    background: #c0033c; }
+    .modal_content .delete:hover, .modal_content .delete:focus {
+      background: #fb155a; }
+
+.reply-form form {
+  position: relative;
+  border: 1px solid #97155a;
+  border-radius: 2px;
+  -webkit-transition: border-width 0.3s ease-in;
+  -moz-transition: border-width 0.3s ease-in;
+  -ms-transition: border-width 0.3s ease-in;
+  -o-transition: border-width 0.3s ease-in;
+  transition: border-width 0.3s ease-in; }
+  .reply-form form textarea {
+    border: 0;
+    background: #2a2a36;
+    padding: 5px 10px;
+    width: 100%;
+    height: 22px;
+    resize: none;
+    overflow: hidden;
+    white-space: pre;
+    -webkit-transition: height 0.3s ease-in;
+    -moz-transition: height 0.3s ease-in;
+    -ms-transition: height 0.3s ease-in;
+    -o-transition: height 0.3s ease-in;
+    transition: height 0.3s ease-in; }
+    .reply-form form textarea::-webkit-input-placeholder {
+      color: #e9e9ee;
+      font-family: "Open Sans", sans-serif; }
+    .reply-form form textarea:-ms-input-placeholder {
+      color: #e9e9ee;
+      font-family: "Open Sans", sans-serif; }
+    .reply-form form textarea:-moz-placeholder {
+      color: #e9e9ee;
+      font-family: "Open Sans", sans-serif; }
+    .reply-form form textarea::-moz-placeholder {
+      color: #e9e9ee;
+      font-family: "Open Sans", sans-serif; }
+    .reply-form form textarea:focus {
+      outline: none;
+      height: 66px;
+      overflow: auto; }
+      .reply-form form textarea:focus::-webkit-input-placeholder {
+        color: transparent;
+        transition: color 0.2s ease; }
+      .reply-form form textarea:focus:-ms-input-placeholder {
+        color: transparent;
+        transition: color 0.2s ease; }
+      .reply-form form textarea:focus:-moz-placeholder {
+        color: transparent;
+        transition: color 0.2s ease; }
+      .reply-form form textarea:focus::-moz-placeholder {
+        color: transparent;
+        transition: color 0.2s ease; }
+  .reply-form form .active_textarea {
+    height: 66px !important;
+    overflow: auto; }
+    .reply-form form .active_textarea::-webkit-input-placeholder {
+      color: transparent;
+      transition: color 0.2s ease; }
+    .reply-form form .active_textarea:-ms-input-placeholder {
+      color: transparent;
+      transition: color 0.2s ease; }
+    .reply-form form .active_textarea:-moz-placeholder {
+      color: transparent;
+      transition: color 0.2s ease; }
+    .reply-form form .active_textarea::-moz-placeholder {
+      color: transparent;
+      transition: color 0.2s ease; }
+
+.reply-form footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between; }
+
+.reply-form .emoji-btn {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  cursor: pointer; }
+  .reply-form .emoji-btn .fa-smile path {
+    fill: #9898b0;
+    -webkit-transition: fill 0.3s ease-in;
+    -moz-transition: fill 0.3s ease-in;
+    -ms-transition: fill 0.3s ease-in;
+    -o-transition: fill 0.3s ease-in;
+    transition: fill 0.3s ease-in; }
+    .reply-form .emoji-btn .fa-smile path:hover {
+      fill: #d2d2dc; }
+
+.reply {
+  position: relative;
+  border-top: 0.5px solid black;
+  background: #21212b; }
+  .reply pre {
+    font-family: "Open Sans", sans-serif; }
+  .reply .avatar {
+    width: calc(80px / 2);
+    height: calc(80px / 2);
+    border-radius: calc(80px / 2);
+    left: calc( (calc(80px / 2) + 30px) * -1);
+    border: 2px solid #6ce485;
+    object-fit: cover;
+    position: absolute;
+    top: 0; }
+
+.emoji-panel {
+  position: absolute;
+  right: calc(22px - 161.81px);
+  bottom: calc(5px -  123px);
+  background: #31313f;
+  padding: 10px 10px;
+  z-index: 999999999;
+  border-radius: 2px;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2); }
+  .emoji-panel .wrapper-emoji {
+    font-size: 16px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-row-gap: 5px;
+    grid-column-gap: 8px; }
+    .emoji-panel .wrapper-emoji span:hover {
+      transform: scale(1.2, 1.2);
+      cursor: pointer; }
+
+.overlay_fullscreen {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  left: 0; }
+
+body {
+  background: #111116; }
+
+::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5em; }
+
+::-webkit-scrollbar-thumb {
+  background: #373740; }
+
+::-webkit-scrollbar-track {
+  background: #21212b; }
+
+body {
+  scrollbar-face-color: #21212b;
+  scrollbar-track-color: #373740; }
+
+.fontawesome-i2svg-active body {
+  display: initial; }
+
+a {
+  cursor: pointer;
+  position: relative;
+  -webkit-transition: color 0.3s ease;
+  -moz-transition: color 0.3s ease;
+  -ms-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease; }
+  a:hover {
+    color: #d2d2dc; }
